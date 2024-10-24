@@ -10,6 +10,10 @@
 - [Contributing](#contributing)
 - [License](#license)
 
+## Authentication
+- Username: admin
+- Password: admin
+
 
 ## Features
 
