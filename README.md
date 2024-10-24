@@ -3,7 +3,6 @@
 
 ## Table of Contents
 
-- [Demo](#demo)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,9 +10,6 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Demo
-
-The application is live and can be accessed at [Meal Explorer on Vercel](https://cmlabs-frontend-internship-test-brown.vercel.app)
 
 ## Features
 
