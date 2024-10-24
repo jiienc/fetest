@@ -1,19 +1,18 @@
-'use client';
+'use client'
 
 import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
+import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import logo from '../../assets/images/letter-n.png';
 
-const Navbar = ({ onLogout }) => {
+const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = (e) => {
         e.preventDefault();
-        localStorage.setItem('auth', 'false');
-        onLogout();
+        localStorage.setItem('auth', false);
         navigate('/');
         window.location.reload();
     };
@@ -37,18 +36,20 @@ const Navbar = ({ onLogout }) => {
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
                     </button>
                 </div>
-                <div className="hidden lg:flex lg:gap-x-12">
+                <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <a href="/foods" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
                         Foods
                     </a>
                     <a href="/patients" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
                         Patients
                     </a>
-                </div>
+                </PopoverGroup>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="/" onClick={handleLogout} className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
+                    <button
+                        onClick={handleLogout}
+                        className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-500">
                         Log out <span aria-hidden="true">&rarr;</span>
-                    </a>
+                    </button>
                 </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} className="lg:hidden">
@@ -57,7 +58,7 @@ const Navbar = ({ onLogout }) => {
                     <div className="flex items-center justify-between">
                         <a href="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
-                            <img alt="Logo" src={logo} className="h-8 w-auto" />
+                            <img alt="Wolf Logo" src={logo} className="h-8 w-auto" />
                         </a>
                         <button
                             type="button"
@@ -81,8 +82,6 @@ const Navbar = ({ onLogout }) => {
                             <div className="py-6">
                                 <button
                                     onClick={handleLogout}
-                                    type="button"
-                                    href="/"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Logout
